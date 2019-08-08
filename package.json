@@ -1,0 +1,36 @@
+{
+  "name": "s3-path-generator",
+  "main": "./src/index.js",
+  "author": "Aleksandr Guidrevitch <alex@darwinapps.com>",
+  "license": "MIT",
+  "version": "0.1.0",
+  "scripts": {
+    "ci": "jest --watchAll",
+    "test": "jest --coverage",
+    "lint": "eslint src test"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-config-airbnb": "^17.1.0",
+    "eslint-config-prettier": "^6.0.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.0",
+    "eslint-plugin-react": "^7.14.3",
+    "jest": "^23.3.0",
+    "jest-cli": "^23.3.0"
+  },
+  "engines": {
+    "node": ">= 8.x.x"
+  },
+  "jest": {
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node",
+    "rootDir": "./src",
+    "roots": [
+      "../test"
+    ]
+  }
+}
