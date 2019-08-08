@@ -1,6 +1,9 @@
 class S3PathGenerator {
 
     static generate(url) {
+        if (typeof url !== 'string' || !url) {
+            throw new Error("Cannot be empty");
+        }
         const protoparts = url.split(/:\/\//);
         if (!(protoparts[0] || "").match(/^https?$/)) {
             throw new Error("Unsupported protocol");

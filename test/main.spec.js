@@ -1,8 +1,10 @@
 const S3PathGenerator = require('../src');
 
-describe("main", function () {
+describe("Test s3-path-generator", function () {
 
-    it("missing capacity", () => {
+    it("generates proper path", () => {
+        expect(() => S3PathGenerator.generate(null)).toThrowWithMessage(Error, "Cannot be empty");
+        expect(() => S3PathGenerator.generate("")).toThrowError(Error, "Cannot be empty");
         expect(() => S3PathGenerator.generate('ftp://www.google.com')).toThrowError();
         expect(() => S3PathGenerator.generate('www.google.com')).toThrowError();
         expect(() => S3PathGenerator.generate('https://')).toThrowError();
