@@ -4,20 +4,18 @@ class S3PathGenerator {
         if (typeof url !== 'string' || !url) {
             throw new Error("Cannot be empty");
         }
-        const protoparts = url.split(/:\/\//);
-        if (!(protoparts[0] || "").match(/^https?$/)) {
+
+        const superparts = url.split(/:\/\//);
+
+        if (!(superparts[0] || "").match(/^https?$/)) {
             throw new Error("Unsupported protocol");
         }
-        if (!protoparts[1]) {
+
+        if (!superparts[1]) {
             throw new Error("Empty domain");
         }
 
-        const parts = protoparts[1].split(/\//).map(encodeURIComponent);
-        if (parts[parts.length - 1] === '') {
-            parts.pop();
-            parts[parts.length - 1] += encodeURIComponent('/');
-        }
-        return protoparts[0] + '/' + parts.join('/');
+        return superparts[0] + '/' + superparts[1].split(/\//).map(encodeURIComponent).join('/');
     }
 }
 
